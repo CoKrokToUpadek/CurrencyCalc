@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myprivate.currency_converter.HelloController">
+    <top>
+        <ToolBar>
+            <Button fx:id="refreshButton" alignment="TOP_LEFT" onAction="#refreshCurrencyRatings" prefHeight="20"
+                    prefWidth="20">
+                <graphic>
+                    <FontIcon iconColor="darkgreen" iconLiteral="eli-globe" iconSize="20"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Update Currency Base"/>
+                </tooltip>
+            </Button>
+
+            <Button fx:id="connectionIcon" alignment="TOP_LEFT"  prefHeight="20" prefWidth="20">
+            </Button>
+
+            <Pane prefHeight="35.0" HBox.hgrow="ALWAYS"/>
+            <Button alignment="TOP_RIGHT" onAction="#closeApp" prefHeight="20" prefWidth="20">
+                <graphic>
+                    <FontIcon iconColor="firebrick" iconLiteral="eli-remove" iconSize="20"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Exit App"/>
+                </tooltip>
+            </Button>
+        </ToolBar>
+    </top>
+    <center>
+        <GridPane fx:id="mainGrid">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+            <GridPane.margin>
+                <Insets top="10"/>
+            </GridPane.margin>
+            <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="CENTER">
+                <GridPane.margin>
+                    <Insets top="20.0"/>
+                </GridPane.margin>
+                <Button onAction="#onClickCalculations" GridPane.rowIndex="2" minHeight="40" prefWidth="600">
+                    <graphic>
+                        <FontIcon iconColor="darkgreen" iconLiteral="eli-retweet" iconSize="30"/>
+                    </graphic>
+                    <tooltip>
+                        <Tooltip text="Calculate"/>
+                    </tooltip>
+                </Button>
+            </HBox>
+            <ComboBox fx:id="upperCombo" minHeight="40" onAction="#comboBoxClearForUpper" GridPane.columnIndex="1"
+                      GridPane.rowIndex="0" prefWidth="Infinity" />
+            <TextField fx:id="upperTextField" alignment="CENTER_RIGHT" minHeight="40" onKeyPressed="#upperTextBoxSetup"
+                       GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </TextField>
+            <TextField fx:id="lowerTextField" alignment="CENTER_RIGHT" minHeight="40" onKeyPressed="#lowerTextBoxSetup"
+                       GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets right="10.0" top="10"/>
+                </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="lowerCombo" minHeight="40" onAction="#comboBoxClearForLower" GridPane.columnIndex="1"
+                      GridPane.rowIndex="1" prefWidth="Infinity">
+                <GridPane.margin>
+                    <Insets top="10"/>
+                </GridPane.margin>
+            </ComboBox>
+        </GridPane>
+    </center>
+</BorderPane>

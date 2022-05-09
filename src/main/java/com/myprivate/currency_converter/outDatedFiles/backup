@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myprivate.currency_converter.HelloController">
+    <top>
+        <ToolBar>
+            <Button fx:id="refreshButton" alignment="TOP_LEFT" prefHeight="20" prefWidth="20"
+                    onAction="#refreshCurrencyRatings">
+                <graphic>
+                    <FontIcon iconColor="darkgreen" iconLiteral="eli-refresh" iconSize="20"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Update Currency Base"/>
+                </tooltip>
+            </Button>
+            <Pane prefHeight="35.0" HBox.hgrow="ALWAYS"/>
+            <Button alignment="TOP_RIGHT" prefHeight="20" prefWidth="20" onAction="#closeApp">
+                <graphic>
+                    <FontIcon iconColor="firebrick" iconLiteral="eli-remove" iconSize="20"/>
+                </graphic>
+                <tooltip>
+                    <Tooltip text="Exit App"/>
+                </tooltip>
+            </Button>
+        </ToolBar>
+    </top>
+    <center>
+        <GridPane>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+            <HBox alignment="BASELINE_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                <GridPane.margin>
+                    <Insets top="10"/>
+                </GridPane.margin>
+                <Button onAction="#onClickCalculations" prefHeight="40" prefWidth="150" text="Calculate!"/>
+            </HBox>
+            <ComboBox fx:id="upperCombo" onAction="#comboBoxClearForUpper" prefHeight="40" prefWidth="150.0"
+                      GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="upperTextField" alignment="CENTER_RIGHT" onKeyPressed="#upperTextBoxSetup" prefHeight="40"
+                       prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </TextField>
+            <TextField fx:id="lowerTextField" alignment="CENTER_RIGHT" onKeyPressed="#lowerTextBoxSetup" prefHeight="40"
+                       prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <GridPane.margin>
+                    <Insets right="10.0" top="10"/>
+                </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="lowerCombo" onAction="#comboBoxClearForLower" prefHeight="40" prefWidth="150.0"
+                      GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <GridPane.margin>
+                    <Insets top="10"/>
+                </GridPane.margin>
+            </ComboBox>
+        </GridPane>
+    </center>
+</BorderPane>
