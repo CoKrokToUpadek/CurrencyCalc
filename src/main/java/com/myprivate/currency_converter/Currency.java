@@ -16,12 +16,22 @@ public class Currency {
     }
 
     public double getCurrencyRate() {
+
         return currencyRate;
     }
 
     @Override
     public String toString() {
-        String formattedCurrency= String.format(Locale.US,"%.2f",currencyRate);
-        return this.currencyShort+"-/"+this.currencyName+"/"+formattedCurrency;
+
+        double tempCurrency;
+        String formattedCurrency;
+
+        if(this.currencyRate<0.01){
+            tempCurrency=this.currencyRate*100;
+            formattedCurrency = String.format(Locale.US,"%.2f",tempCurrency);
+            return this.currencyShort+"-/"+this.currencyName+"/kurs w złotych: "+ formattedCurrency +"*-cena za 100 sztuk waluty";
+        }
+        formattedCurrency = String.format(Locale.US,"%.2f",currencyRate);
+        return this.currencyShort+"-/"+this.currencyName+"/kurs w złotych: "+ formattedCurrency;
     }
 }
